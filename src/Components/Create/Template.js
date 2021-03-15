@@ -29,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 14,
 	},
 	footer: {
-		marginTop: -60,
+		marginTop: -76,
 		backgroundColor: theme.palette.primary.main,
-		borderRadius: '8px'
+		borderRadius: '8px',
+		padding: '16px 8px 16px 8px'
 	},
 	test: {
 		border: '4px solid'

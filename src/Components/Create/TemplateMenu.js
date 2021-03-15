@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
 	menu: {
 		paddingLeft: '8px',
 		width: '150px'
+	},
+	icon: {
+		color: theme.palette.primary.contrastText
 	}
 }));
 const TemplateMenu = () => {
@@ -43,7 +46,7 @@ const TemplateMenu = () => {
 		<React.Fragment>
 			<Box display={'flex'}>
 				<Box onClick={handleClick} className={classes.root}>
-				<IconButton>
+				<IconButton className={classes.icon}>
 					<MoreVertIcon />
 				</IconButton>
 				</Box>
