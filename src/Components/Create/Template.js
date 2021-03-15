@@ -9,7 +9,7 @@ import Circle from '@material-ui/icons/AddCircleOutline';
 import Box from "@material-ui/core/Box";
 import {template} from "../../theme/colors";
 import Avatar from "@material-ui/core/Avatar";
-import  TemplateMenu from '../Create/templateMenu'
+import  TemplateMenu from '../Create/TemplateMenu'
 const useStyles = makeStyles((theme) => ({
 	root: {
 		minWidth: 275,
@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: theme.palette.primary.main,
 		borderRadius: '8px'
 	},
+	test: {
+		border: '4px solid'
+	}
 }));
 const NewForm = (props) => {
 	const classes = useStyles(props);
@@ -44,7 +47,6 @@ const NewForm = (props) => {
 					<Typography className={classes.title}>
 					Contact Us
 				</Typography>
-					<Circle />
 				</Box>
 			</CardContent>
 			<CardActions className={classes.footer}>

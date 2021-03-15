@@ -7,7 +7,7 @@ import {CastConnected, Create, ExpandLess, ExpandMore, Share} from "@material-ui
 import Collapse from "@material-ui/core/Collapse";
 import List from "@material-ui/core/List";
 import {makeStyles} from "@material-ui/core/styles";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex',
@@ -88,10 +88,13 @@ const useStyles = makeStyles((theme) => ({
 	nested: {
 		paddingLeft: theme.spacing(4),
 	},
+	active: {
+		border: '1px',
+	},
 }));
 const drawerWidth = 240;
 
-const LeftNav = () => {
+const LeftNav = (props) => {
 	const classes = useStyles();
 
 	const [subMenuOpen, setSubMenuOpen] = React.useState(false);
@@ -103,7 +106,7 @@ const LeftNav = () => {
 	return (
 		<List>
 			<div>
-				<ListItem button  onClick={handleOpenSubMenu}>
+				<ListItem activeClassName={classes.active} button  onClick={handleOpenSubMenu}>
 					<ListItemIcon>
 						<DashboardIcon />
 					</ListItemIcon>
@@ -112,21 +115,21 @@ const LeftNav = () => {
 				</ListItem>
 				<Collapse in={subMenuOpen} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
-						<ListItem button className={classes.nested} component={Link} to={'/create'} >
+						<ListItem button activeClassName={'Mui-selected'} className={classes.nested} component={NavLink} to={'/create'} >
 							<ListItemIcon>
 								<Create />
 							</ListItemIcon>
 							<ListItemText primary="Create" />
 						</ListItem>
 
-						<ListItem button className={classes.nested}>
+						<ListItem button activeClassName={'Mui-selected'}  className={classes.nested}  component={NavLink} to={'/connect'}>
 							<ListItemIcon>
 								<CastConnected />
 							</ListItemIcon>
 							<ListItemText primary="Connect" />
 						</ListItem>
 
-						<ListItem button className={classes.nested}>
+						<ListItem button activeClassName={'Mui-selected'}  className={classes.nested}  component={NavLink} to={'/share'}>
 							<ListItemIcon>
 								<Share />
 							</ListItemIcon>
