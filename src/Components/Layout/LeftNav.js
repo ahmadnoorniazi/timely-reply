@@ -7,6 +7,7 @@ import {CastConnected, Create, ExpandLess, ExpandMore, Share} from "@material-ui
 import Collapse from "@material-ui/core/Collapse";
 import List from "@material-ui/core/List";
 import {makeStyles} from "@material-ui/core/styles";
+import {Link} from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex',
@@ -111,7 +112,7 @@ const LeftNav = () => {
 				</ListItem>
 				<Collapse in={subMenuOpen} timeout="auto" unmountOnExit>
 					<List component="div" disablePadding>
-						<ListItem button className={classes.nested}>
+						<ListItem button className={classes.nested} component={Link} to={'/create'} >
 							<ListItemIcon>
 								<Create />
 							</ListItemIcon>
