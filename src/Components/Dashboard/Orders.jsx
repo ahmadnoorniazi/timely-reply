@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import Select from './Select'
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -34,7 +35,12 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px",
     padding: "15px",
     borderRadius: "5px",
-  }
+  },
+  topHeader: {
+    display: "flex",
+    alignItems: "center",
+  },
+  
 }));
 
 export default function Orders() {
@@ -42,7 +48,10 @@ export default function Orders() {
   return (
     <React.Fragment>
       <div  className={classes.main}>
+        <div className={classes.topHeader}>
       <Title>Questions by Question</Title>
+      <Select />
+      </div>
       <Table size="small">
         <TableHead>
           <TableRow>

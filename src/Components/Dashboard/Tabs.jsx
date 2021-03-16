@@ -79,9 +79,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     padding: "5px 10px",
-    border:"1px solid #000000",
-    boxSizing: "border-box",
-    borderRadius:"10px",
   },
   tabText: {
      margin: 0,
@@ -90,6 +87,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "16px",
       fontWeight: 600,
       fontFamily: "Poppins",
+  },
+  border: {
+   
+    border:"1px solid #000000",
+    boxSizing: "border-box",
+    borderRadius:"10px",
   }
   
 }));
@@ -105,7 +108,7 @@ export default function ScrollableTabsButtonPrevent() {
   return (
     <div className={classes.root}>
       <div className={classes.tabContainer}>
-        <div className={classes.tabItem}>
+        <div className={`${classes.tabItem} ${classes.border}`}>
            <EqualizerIcon />
            <p className={classes.tabText}>Insight</p>
         </div>
