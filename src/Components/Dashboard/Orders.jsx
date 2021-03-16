@@ -29,21 +29,26 @@ const useStyles = makeStyles((theme) => ({
   seeMore: {
     marginTop: theme.spacing(3),
   },
+  main: {
+     border: '1px solid black',
+    margin: "20px",
+    padding: "15px",
+    borderRadius: "5px",
+  }
 }));
 
 export default function Orders() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <div  className={classes.main}>
+      <Title>Questions by Question</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Questions</TableCell>
+            <TableCell>Views</TableCell>
+            <TableCell>Drop-off To</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,16 +57,12 @@ export default function Orders() {
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
-        </Link>
+      </div>
       </div>
     </React.Fragment>
   );
