@@ -19,6 +19,7 @@ import DateQuestion from "../../Components/Create/DateQuestion";
 import LongQuestion from "../../Components/Create/LongQuestion";
 import EmailQuestion from "../../Components/Create/EmailQuestion";
 import YesNoQuestion from "../../Components/Create/YesNoQuestion";
+import Button from "@material-ui/core/Button";
 
 export const useStyles = makeStyles((theme) => ({
 	root: {
@@ -103,6 +104,21 @@ const CreateForm = () => {
 					const Comp = question
 					return <Comp index={index} handleRemove={onRemove} />
 				})}
+
+				{questions.length > 0 && (
+					<Grid item xs={12}>
+						<Paper elevation={1} className={classes.paper}>
+							<Box display={'flex'}>
+								<Box mr={2}>
+									<Button  variant="contained" color={'primary'}>Save</Button>
+								</Box>
+								<Box>
+									<Button variant="contained">Cancel</Button>
+								</Box>
+							</Box>
+						</Paper>
+					</Grid>
+				)}
 
       </Grid>
     )
