@@ -7,72 +7,70 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
-import Select from './Select'
+import Select from './Select';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+	return { id, date, name, shipTo, paymentMethod, amount };
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
-  createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
-  createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
+	createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
+	createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
+	createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
+	createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
+	createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79)
 ];
 
 function preventDefault(event) {
-  event.preventDefault();
+	event.preventDefault();
 }
 
 const useStyles = makeStyles((theme) => ({
-  seeMore: {
-    marginTop: theme.spacing(3),
-  },
-  main: {
-     border: '1px solid black',
-    margin: "20px",
-    padding: "15px",
-    borderRadius: "5px",
-  },
-  topHeader: {
-    display: "flex",
-    alignItems: "center",
-  },
-  
+	seeMore: {
+		marginTop: theme.spacing(3)
+	},
+	main: {
+		border: '1px solid black',
+		margin: '20px',
+		padding: '15px',
+		borderRadius: '5px'
+	},
+	topHeader: {
+		display: 'flex',
+		alignItems: 'center'
+	}
 }));
 
 export default function Orders() {
-  const classes = useStyles();
-  return (
-    <React.Fragment>
-      <div  className={classes.main}>
-        <div className={classes.topHeader}>
-      <Title>Questions by Question</Title>
-      <Select />
-      </div>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Questions</TableCell>
-            <TableCell>Views</TableCell>
-            <TableCell>Drop-off To</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <div className={classes.seeMore}>
-      </div>
-      </div>
-    </React.Fragment>
-  );
+	const classes = useStyles();
+	return (
+		<React.Fragment>
+			<div className={classes.main}>
+				<div className={classes.topHeader}>
+					<Title>Questions by Question</Title>
+					<Select />
+				</div>
+				<Table size="small">
+					<TableHead>
+						<TableRow>
+							<TableCell>Questions</TableCell>
+							<TableCell>Views</TableCell>
+							<TableCell>Drop-off To</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{rows.map((row) => (
+							<TableRow key={row.id}>
+								<TableCell>{row.date}</TableCell>
+								<TableCell>{row.name}</TableCell>
+								<TableCell>{row.shipTo}</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+				<div className={classes.seeMore} />
+			</div>
+		</React.Fragment>
+	);
 }
