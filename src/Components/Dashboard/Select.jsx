@@ -25,7 +25,7 @@ const BootstrapInput = withStyles((theme) => ({
     },
   },
   input: {
-    borderRadius: 4,
+    borderRadius: 15,
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
     border: '1px solid #ced4da',
@@ -46,14 +46,14 @@ const BootstrapInput = withStyles((theme) => ({
       '"Segoe UI Symbol"',
     ].join(','),
     '&:focus': {
-      borderRadius: 4,
+      borderRadius: 15,
       borderColor: '#80bdff',
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
     },
   },
 }))(InputBase);
 
-export default function NativeSelects() {
+export default function NativeSelects({width, placeholder}) {
   const classes = useStyles();
   const [state, setState] = React.useState("");
 
@@ -63,19 +63,20 @@ export default function NativeSelects() {
   };
 
   return (
-    <div className={classes.selectMain}>
-       <FormControl className={classes.margin}>
+       <FormControl className={classes.margin} style={{width}}>
         <NativeSelect
           id="demo-customized-select-native"
           value={state}
           onChange={handleChange}
           input={<BootstrapInput />}
         >
+          <option value="" disabled>
+            {placeholder}
+          </option>
           <option aria-label="None" value="" />
           <option value={10}>last month</option>
           <option value={20}>last week</option>
         </NativeSelect>
       </FormControl>
-    </div>
   );
 }
