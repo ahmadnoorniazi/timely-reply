@@ -5,6 +5,8 @@ import Create from './Containers/Create';
 import CreateForm from './Containers/CreateForm';
 
 const Responses = lazy(() => import('./Containers/Responses'));
+const SharePage = lazy(() => import('./Containers/Share'));
+
 
 const Routes = () => {
 	return (
@@ -15,6 +17,7 @@ const Routes = () => {
 				<Route exact path="/create/templates" component={Create} />
 				<Route exact path="/create/form" component={CreateForm} />
 				<Route exact path="/responses" component={Responses} />
+				<Route exact path="/share" component={SharePage} />
 			</Switch>
 		</Suspense>
 	);

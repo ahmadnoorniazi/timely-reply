@@ -75,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
 		flexFlow: 'row-reverse'
 	},
 	tabItem: {
-		margin: '10px 20px',
 		display: 'flex',
 		alignItems: 'center',
 		padding: '5px 10px'
@@ -89,9 +88,13 @@ const useStyles = makeStyles((theme) => ({
 		fontFamily: 'Poppins'
 	},
 	border: {
-		border: '1px solid #000000',
-		boxSizing: 'border-box',
-		borderRadius: '10px'
+		margin: '10px 20px',
+		'&:active': {
+			border: '1px solid #000000',
+			boxSizing: 'border-box',
+			borderRadius: '10px',
+			color: 'black'
+		}
 	}
 }));
 
@@ -106,19 +109,19 @@ export default function ScrollableTabsButtonPrevent() {
 	return (
 		<div className={classes.root}>
 			<div className={classes.tabContainer}>
-				<Link to="/">
-					<div className={`${classes.tabItem} ${classes.border}`}>
+				<Link to="/" className={`${classes.border} active`}>
+					<div className={classes.tabItem}>
 						<EqualizerIcon />
 						<p className={classes.tabText}>Insight</p>
 					</div>
 				</Link>
-				<Link to="/">
+				<Link to="/" className={classes.border}>
 					<div className={classes.tabItem}>
 						<DataUsageIcon />
 						<p className={classes.tabText}>Summary</p>
 					</div>
 				</Link>
-				<Link to="/responses">
+				<Link to="/responses" className={classes.border}>
 					<div className={classes.tabItem}>
 						<ChatBubbleOutlineIcon />
 						<p className={classes.tabText}>Responses</p>
